@@ -3,9 +3,9 @@
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
-// Defines an object array that contains properties and values of each quote
-//let quote;
+
 let randomQuote;
+// Defines an object array that contains properties and values of each quote
 let quotes = [
     {
         quote: "I could agree with you but then we'd both be wrong",
@@ -28,7 +28,7 @@ let quotes = [
     {
         quote: "…the real world is essentially a simulation anyway. I like that idea. That even if we’re not real we represent a dynamic. A tiny finger tracing a line in the infinite. A shape. And then we’re gone. All I’m saying is that if we’re just information, just noise in a system, we might as well be a symphony.",
         source: "root",
-        citation: "S05E10, Person of Interest",
+        citation: "S05E10, Person of Interest ",
         year: 2016
     }, 
     {
@@ -40,10 +40,9 @@ let quotes = [
     },
     {
         quote: "When you find that one person who connects you to the world, you become someone different. Someone better. When that person is taken from you, what do you become then?",
-        source: "John Reese",
+        source: "John Reese ",
         citation: null,
-        year: null
-
+        year: 2015
     }
 ]
 
@@ -62,16 +61,30 @@ function getRandomQuote(quote) {
 }
 
 function printQuote(content) {
- let myQuote = getRandomQuote(quotes);
- let contentToDisplay = "<p class=\"quote\">" + myQuote.quote + "</p>";
-     contentToDisplay += "<p class=\"source\">" + myQuote.source + "</p>";
-     contentToDisplay += "<span class=\"citation\">" + myQuote.citation + "</span";
-     contentToDisplay += "<span class=\"year\">" + myQuote.year + "</span";
 
+// Gets a random quote from the available quotes
+ let myQuote = getRandomQuote(quotes);
+
+ let quoteToDisplay = "<p class=\"quote\">" + myQuote.quote + "</p>";
+
+ // Structure the data and check whether a property contains any null values, if not display the values
+ let sourceToDisplay = "<p class=\"source\">";
+ sourceToDisplay += myQuote.source;
+ if(myQuote.citation !== null) {
+     sourceToDisplay += "<span class=\"citation\">" + myQuote.citation + "</span>"; 
+ }
+ if(myQuote.year !== null) {
+     sourceToDisplay += "<span class=\"year\">" + myQuote.year + "</span>";
+ }
+ sourceToDisplay += "</p>";
+ quoteToDisplay += sourceToDisplay;
+
+// Get the quotebox element from the document and fill it with the data
  let quoteBox = document.getElementById('quote-box');
- quoteBox.innerHTML = contentToDisplay;
+ quoteBox.innerHTML = quoteToDisplay;
+
+ // Returns the data
  return quoteBox;
 }
 console.log(printQuote());
 printQuote();
-//getRandomQuote(quotes);
