@@ -9,4 +9,4 @@ Future goals:
 * Displaying quotes from a webservice rather than a hardcore object array
 
 Goals achieved:
-* Result exceeds expectations. 
+* Project exceeds expectations. 
