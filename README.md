@@ -1,4 +1,5 @@
-# techdegree-project-1
+# techdegree-project-1 / random quote generator
+
 
 Project 1's goal was set to familiarising object oriented JS and working with functions. 
 
